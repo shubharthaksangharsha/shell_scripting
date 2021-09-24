@@ -2,7 +2,8 @@
 
 #declare a variable
 a=4 #make sure to have no spaces before and after = operator
-
+a=5
+echo $a
 #declare readonly variable means value can't be changed once declared
 readonly b=4
 b=5 # produce an error
@@ -65,5 +66,43 @@ case "$cars" in
     "bmw") echo "BMW" ;;
 esac
 
+#using loops
+#3 loops are there in shell scripting
+#while loop, for loop, until loop
+
+#while loop
+#run the loop till condition is false
+#example
+a=5
+while [ $a -gt 0 ]
+do
+    echo $a
+    a=`expr $a - 1`
+done
+#output : 5 4 3 2 1 
+# the above code will run till condition becomes false i.e till a = 0
+
+#for loop
+#run the loop for each value until the value is false or finished
+#basically used to iterate each item in a list
+#example
+for a in 1 2 3 4 5 6 7 8 9 10
+do
+    if [ $a -eq 5 ]; then
+	break #note you can also use continue which will skip the statement when if condition is true
+    fi
+    echo "Iteration no $a"
+done
+
+#until loop
+#run the loop till condition became true ( opposite of while loop )
+#example
+a=5
+until [ $a -le 0 ]
+do
+    echo "current value of a: $a"
+    a=`expr $a - 1`
+done
+exit
 
 #@uthor : Shubharthak Sangharasha 
